@@ -10,6 +10,7 @@ public class PlanningCtr
 		fenPlanning = new Fen_Planning(horaire,jour);
 		fenPlanning.setBounds(100, 100, 400, 600);
 		fenPlanning.setModal(true);
-		fenPlanning.setVisible(true);
-	}
+		fenPlanning.setVisible(true);}
 }
+
+//tu verra ce que sa donne

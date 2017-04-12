@@ -1,7 +1,6 @@
 package pck_dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.DateFormat;

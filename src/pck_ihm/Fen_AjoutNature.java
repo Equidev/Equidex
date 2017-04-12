@@ -1,19 +1,14 @@
 package pck_ihm;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import pck_metier.Activite;
-import pck_metier.NatureActivite;
 import javax.swing.JTextField;
-import java.awt.Font;
+import javax.swing.border.EmptyBorder;
 
 public class Fen_AjoutNature extends JDialog
 {

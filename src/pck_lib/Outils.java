@@ -19,7 +19,6 @@ import pck_ihm.Fen_Principal;
 
 public class Outils
 {
-
 	/** Renvoie un tableau 2D de JButton des participations sur une semaine */
 	public static JButton[][] getTabPlanning(JPanel panPlanning, Fen_Principal fp)
 	{

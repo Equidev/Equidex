@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -18,7 +17,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import pck_dao.ActiviteDao;
-import pck_lib.Outils;
 import pck_metier.Activite;
 import pck_metier.Niveau;
 

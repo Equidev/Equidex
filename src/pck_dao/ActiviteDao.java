@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 import pck_metier.Activite;
-import pck_metier.Client;
 import pck_metier.Niveau;
 
 public class ActiviteDao

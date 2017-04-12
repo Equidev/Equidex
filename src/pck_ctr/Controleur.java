@@ -109,7 +109,7 @@ public class Controleur
 						// Bloque le déroulement du code tant que la fenetre est
 						// afficher
 					}
-					fp.refreshActivite();
+					fp.refreshClient();
 				}
 				
 				// Onglet Cheval

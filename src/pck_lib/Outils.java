@@ -19,6 +19,7 @@ import pck_ihm.Fen_Principal;
 
 public class Outils
 {
+<<<<<<< HEAD
 	/** Renvoie un tableau 2D de JButton des participations sur une semaine */
 	public static JButton[][] getTabPlanning(JPanel panPlanning, Fen_Principal fp)
 	{
@@ -207,6 +208,196 @@ public class Outils
 		return nouvelleActivite;
 	}
 	
+=======
+
+	/** Renvoie un tableau 2D de JButton des participations sur une semaine */
+	public static JButton[][] getTabPlanning(JPanel panPlanning, Fen_Principal fp)
+	{
+		JButton res[][] = new JButton[8][6];
+		JButton unBouton;
+		int i, j;
+		for (i = 0; i < 8; i++)
+		{
+			for (j = 0; j < 6; j++)
+			{
+				unBouton = new JButton("bouton" + i + j);
+				unBouton.setBorder(new LineBorder(new Color(0, 0, 0)));
+				if (i < 8 / 2)
+				{
+					unBouton.setBounds(65 + 145 * j, 60 + 60 * i, 145, 60);
+				} else
+				{
+					unBouton.setBounds(65 + 145 * j, 150 + 60 * i, 145, 60);
+				}
+				unBouton.addActionListener(fp);
+				panPlanning.add(unBouton);
+				res[i][j] = unBouton;
+			}
+		}
+		return res;
+	}
+
+	/** Renvoie l'affichage de l'onglet Planning */
+	public static void affichePlanning(JPanel panPlanning)
+	{
+		JLabel unLabel;
+		int i, j;
+
+		/** Affichage des heures */
+		for (i = 0; i < 8; i++)
+		{
+			if (i < 8 / 2)
+			{
+				unLabel = new JLabel((8 + i) + "h-" + (9 + i) + "h");
+				unLabel.setBounds(5, 60 + 60 * i, 60, 60);
+			} else
+			{
+				unLabel = new JLabel((10 + i) + "h-" + (11 + i) + "h");
+				unLabel.setBounds(5, 150 + 60 * i, 60, 60);
+			}
+			unLabel.setBorder(new LineBorder(new Color(0, 0, 0)));
+			unLabel.setBackground(Color.LIGHT_GRAY);
+			unLabel.setOpaque(true);
+			panPlanning.add(unLabel);
+		}
+
+		/** Affichage de la séparation du midi */
+		for (i = 0; i < 2; i++)
+		{
+			for (j = 0; j < 7; j++)
+			{
+				if (j == 0)
+				{
+					unLabel = new JLabel((12 + i) + "h-" + (13 + i) + "h");
+					unLabel.setBounds(5, 300 + 45 * i, 60, 45);
+				} else
+				{
+					unLabel = new JLabel();
+					unLabel.setBounds(65 + 145 * (j - 1), 300 + 45 * i, 145, 45);
+				}
+				unLabel.setBorder(new LineBorder(new Color(0, 0, 0)));
+				unLabel.setBackground(Color.LIGHT_GRAY);
+				unLabel.setOpaque(true);
+				panPlanning.add(unLabel);
+			}
+		}
+
+	}
+
+	/** Renvoie l'affichage de l'onglet Activité */
+	public static JButton[][] afficheActivite(JPanel panActivite, Fen_Principal fp)
+	{
+		int i, j;
+		JLabel jlabNom, jlabNiveau, jlabTarif;
+		JButton jBtnAffichActi, jBtnEditActi, jBtnSupprActi;
+		JButton lesBoutons[][];
+		JScrollPane jSPanLstActivite;
+		JPanel panLstActivite, mainPanel;
+
+		panLstActivite = new JPanel();
+		mainPanel = new JPanel();
+		mainPanel.setBounds(5, 5, 930, 552);
+		mainPanel.setLayout(new BorderLayout());
+		int var = Fen_Principal.LES_ACTIVITES.size();
+		panLstActivite.setPreferredSize(new Dimension(930,40+60*var));
+		panLstActivite.setLayout(null);
+
+
+		// Liste des activités
+		for (i = 0; i < Fen_Principal.LES_ACTIVITES.size(); i++)
+		{
+			jlabNom = new JLabel("  " + Fen_Principal.LES_ACTIVITES.get(i).getNomActivite());
+			jlabNom.setOpaque(true);
+			jlabNom.setBackground(new Color(154, 205, 50));
+			jlabNom.setForeground(Color.BLACK);
+			jlabNom.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+			jlabNom.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(255, 255, 255), new Color(0, 100, 0),
+					new Color(128, 128, 128), new Color(0, 100, 0)));
+			jlabNom.setBounds(5, 22 + 60 * i, 320, 40);
+			panLstActivite.add(jlabNom);
+
+			// Présentation des galop dans le label Niveau
+			String chaine = "  Galop ";
+			for (j = 0; j < Fen_Principal.LES_ACTIVITES.get(i).getNiveauActivite().size(); j++)
+			{
+				if (j == (Fen_Principal.LES_ACTIVITES.get(i).getNiveauActivite().size() - 1))
+				{
+					chaine += Fen_Principal.LES_ACTIVITES.get(i).getNiveauActivite().get(j).getLibelleNiveau()
+							.substring(6, 7);
+				} else
+				{
+					chaine += Fen_Principal.LES_ACTIVITES.get(i).getNiveauActivite().get(j).getLibelleNiveau()
+							.substring(6, 7) + "-";
+				}
+
+			}
+
+			jlabNiveau = new JLabel(String.valueOf(chaine));
+			jlabNiveau.setOpaque(true);
+			jlabNiveau.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+			jlabNiveau.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(255, 255, 255), new Color(0, 100, 0),
+					new Color(128, 128, 128), new Color(0, 100, 0)));
+			jlabNiveau.setBackground(new Color(154, 205, 50));
+			jlabNiveau.setBounds(324, 22 + 60 * i, 210, 40);
+			panLstActivite.add(jlabNiveau);
+
+			jlabTarif = new JLabel("  " + String.valueOf(Fen_Principal.LES_ACTIVITES.get(i).getTarifHeure()) + " €/h");
+			jlabTarif.setOpaque(true);
+			jlabTarif.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+			jlabTarif.setBorder(new BevelBorder(BevelBorder.RAISED, new Color(255, 255, 255), new Color(0, 100, 0),
+					new Color(128, 128, 128), new Color(0, 100, 0)));
+			jlabTarif.setBackground(new Color(154, 205, 50));
+			jlabTarif.setBounds(533, 22 + 60 * i, 210, 40);
+			panLstActivite.add(jlabTarif);
+
+		}
+
+		lesBoutons = new JButton[Fen_Principal.LES_ACTIVITES.size()][3];
+		int nb = ActiviteDao.getNbActivite();
+		for (i = 0; i < nb ; i++)
+		{
+
+			jBtnEditActi = new JButton("btnEditerActivite" + i);
+			jBtnEditActi.setText("");
+			jBtnEditActi.setBackground(new Color(192, 192, 192));
+			jBtnEditActi.setIcon(new ImageIcon(Fen_Principal.class.getResource("/pck_design/btnFiche.jpg")));
+			jBtnEditActi.setForeground(Color.WHITE);
+			jBtnEditActi.setBounds(811, 22 + 60 * i, 40, 40);
+			panLstActivite.add(jBtnEditActi);
+
+			jBtnSupprActi = new JButton("btnSupprimerActivite" + i);
+			jBtnSupprActi.setText("");
+			jBtnSupprActi.setBackground(new Color(192, 192, 192));
+			jBtnSupprActi.setIcon(new ImageIcon(Fen_Principal.class.getResource("/pck_design/btnCorbeille.jpg")));
+			jBtnSupprActi.setBounds(862, 22 + 60 * i, 40, 40);
+			panLstActivite.add(jBtnSupprActi);
+
+			jBtnEditActi.addActionListener(fp);
+			jBtnSupprActi.addActionListener(fp);
+
+			lesBoutons[i][0] = jBtnEditActi;
+			lesBoutons[i][1] = jBtnSupprActi;
+		}
+
+		jSPanLstActivite = new JScrollPane(panLstActivite,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		mainPanel.add(jSPanLstActivite,BorderLayout.CENTER);
+		
+		
+		panActivite.add(mainPanel);
+		return lesBoutons;
+	}
+
+	public static JButton getBtnNouvelleActivite(JPanel panActivite, Fen_Principal fp)
+	{
+		JButton nouvelleActivite;
+		nouvelleActivite = new JButton("");
+		nouvelleActivite.setText("Ajouter une nouvelle activité");
+		nouvelleActivite.setBounds(98, 580, 738, 40);
+		panActivite.add(nouvelleActivite);
+		nouvelleActivite.addActionListener(fp);
+		return nouvelleActivite;
+	}
+>>>>>>> branch 'master' of https://github.com/Equidev/Equidex.git
 	
 	public static JButton[][] afficheClient(JPanel panClient, Fen_Principal fp)
 	{

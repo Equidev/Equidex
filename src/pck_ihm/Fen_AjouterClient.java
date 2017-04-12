@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -36,7 +36,7 @@ public class Fen_AjouterClient extends JDialog implements ActionListener
 	private JLabel lblTxt6;
 	private JLabel lblTxt7;
 	private JLabel lblTxt8;
-	private JComboBox cbxGrade;
+	private JComboBox<Niveau> cbxGrade;
 	private JLabel lbltxt9;
 	private JTextField txtNom;
 	private JTextField txtPrenom;
@@ -107,7 +107,7 @@ public class Fen_AjouterClient extends JDialog implements ActionListener
 		lblTxt8.setBounds(10, 263, 37, 30);
 		contentPanel.add(lblTxt8);
 		
-		cbxGrade = new JComboBox(ClientDao.getNiveaux());
+		cbxGrade = new JComboBox<Niveau>(ClientDao.getNiveaux());
 		cbxGrade.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
 		cbxGrade.setBounds(368, 47, 155, 26);
 		contentPanel.add(cbxGrade);
@@ -130,7 +130,7 @@ public class Fen_AjouterClient extends JDialog implements ActionListener
 		txtPrenom.setColumns(10);
 		
 		dateNaissJDC = new JDateChooser();
-		dateNaissJDC.setDate(new Date());
+		this.dateNaissJDC.setDateFormatString("dd/MM/yyyy");
 		dateNaissJDC.setBounds(145, 87, 122, 26);
 		contentPanel.add(dateNaissJDC);
 		
@@ -186,7 +186,7 @@ public class Fen_AjouterClient extends JDialog implements ActionListener
 			else 
 			{
 				leClient = new Client(txtNom.getText(), txtPrenom.getText(), txtMail.getText(), txtTel.getText(), txtRue.getText(), txtCP.getText(),
-						txtVille.getText(), dateNaissJDC.getDate(), (Niveau)cbxGrade.getSelectedItem());
+						txtVille.getText(), null, (Niveau)cbxGrade.getSelectedItem());
 
 				// Ajoute la nouvelle ligne dans la base
 				ClientDao.ajouterClient(leClient);

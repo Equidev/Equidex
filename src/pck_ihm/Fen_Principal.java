@@ -196,7 +196,7 @@ public class Fen_Principal extends JFrame implements ActionListener
 	public void refreshClient()
 	{
 		this.panClient.removeAll();
-		//this.lesBtnClients = Outils.afficheClient(panClient, this);
+		this.lesBtnClient = Outils.afficheClient(panClient, this);
 		this.nouveauClient = Outils.getBtnNouveauClient(panClient, this);
 		this.invalidate();
 		this.revalidate();

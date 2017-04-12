@@ -31,7 +31,7 @@ public class Niveau
 	@Override
 	public String toString()
 	{
-		return libelleNiveau;
+		return this.libelleNiveau;
 	}
 
 }

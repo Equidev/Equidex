@@ -54,13 +54,14 @@ public class ClientDao
 		Connection connect = MysqlDao.getConnection(); 
 
 		//Formatage du java util date pour implément dans la base
-	    DateFormat maDF = new SimpleDateFormat("dd/MM/yyyy");
-	    maDF.format(leClient.getDateNaissClient().getDate()); 
+//	    DateFormat maDF = new SimpleDateFormat("dd/MM/yyyy");
+//	    maDF.format(leClient.getDateNaissClient().getDate()); 
 	    //java.sql.Date maD = ;
+		Date uneDate = Date.valueOf("2000-06-24");
 		
 		String reqInsert = "INSERT INTO client (nomClient, prenomClient, mailClient, telClient, CPClient, rueClient, villeClient, dateNaissClient, idNiveau)" +
 							"VALUES ('" + leClient.getNomClient() +"','"+ leClient.getPrenomClient() +"','"+ leClient.getMailClient() +"','"+ leClient.getTelClient() +
-							"','"+ leClient.getCPClient() +"','"+ leClient.getRueClient() +"','"+ leClient.getVilleClient() +"','"+ maDF +"','"+ leClient.getLeNiveau() +"')";
+							"','"+ leClient.getCPClient() +"','"+ leClient.getRueClient() +"','"+ leClient.getVilleClient() +"','"+ uneDate +"','"+ leClient.getLeNiveau().getIdNiveau() +"')";
 
 		try
 		{
@@ -69,7 +70,7 @@ public class ClientDao
 			stlien.close();
 		} catch (Exception e)
 		{
-			System.out.println("Erreur dans l'insertion d'un client :  " + e.getMessage() + "\n");
+			System.out.println("Erreur dans l'insertion d'un client : \n" + e.getMessage() + "\n");
 		}
 	}
 	

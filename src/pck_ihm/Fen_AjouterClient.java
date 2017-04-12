@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -130,7 +130,7 @@ public class Fen_AjouterClient extends JDialog implements ActionListener
 		txtPrenom.setColumns(10);
 		
 		dateNaissJDC = new JDateChooser();
-		dateNaissJDC.setDate(new Date());
+		//dateNaissJDC.setDate(new Date());
 		dateNaissJDC.setBounds(145, 87, 122, 26);
 		contentPanel.add(dateNaissJDC);
 		

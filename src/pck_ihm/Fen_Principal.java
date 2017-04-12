@@ -187,6 +187,16 @@ public class Fen_Principal extends JFrame implements ActionListener
 		this.panActivite.removeAll();
 		this.lesBtnActivite = Outils.afficheActivite(panActivite, this);
 		this.nouvelleActivite = Outils.getBtnNouvelleActivite(panActivite, this);
+		this.invalidate();
+		this.revalidate();
+		this.repaint();
+	}
+	
+	/** Permet de rafraichir l'onglet activité */
+	public void refreshClient()
+	{
+		this.panClient.removeAll();
+		//this.lesBtnClients = Outils.afficheClient(panClient, this);
 		this.nouveauClient = Outils.getBtnNouveauClient(panClient, this);
 		this.invalidate();
 		this.revalidate();

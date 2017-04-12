@@ -208,7 +208,6 @@ public class Outils
 		return nouvelleActivite;
 	}
 	
-	
 	public static JButton[][] afficheClient(JPanel panClient, Fen_Principal fp)
 	{
 		int i;

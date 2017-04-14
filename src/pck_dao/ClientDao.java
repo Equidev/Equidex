@@ -61,7 +61,7 @@ public class ClientDao
 		
 		String reqInsert = "INSERT INTO client (nomClient, prenomClient, mailClient, telClient, CPClient, rueClient, villeClient, dateNaissClient, idNiveau)" +
 							"VALUES ('" + leClient.getNomClient() +"','"+ leClient.getPrenomClient() +"','"+ leClient.getMailClient() +"','"+ leClient.getTelClient() +
-							"','"+ leClient.getCPClient() +"','"+ leClient.getRueClient() +"','"+ leClient.getVilleClient() +"','"+ uneDate +"','"+ leClient.getLeNiveau().getIdNiveau() +"')";
+							"','"+ leClient.getCPClient() +"','"+ leClient.getRueClient() +"','"+ leClient.getVilleClient() +"','"+ leClient.getDateNaissClient() +"','"+ leClient.getLeNiveau().getIdNiveau() +"')";
 
 		try
 		{

@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -177,6 +179,7 @@ public class Fen_AjouterClient extends JDialog implements ActionListener
 		{
 			Client leClient;
 			
+			
 			// Verification de saisie	
 			if (txtNom.getText().isEmpty() || txtPrenom.getText().isEmpty() || txtTel.getText().isEmpty() || 
 				txtMail.getText().isEmpty() || txtRue.getText().isEmpty() || txtVille.getText().isEmpty() || txtCP.getText().isEmpty() || cbxGrade.getSelectedItem() == null)
@@ -185,8 +188,12 @@ public class Fen_AjouterClient extends JDialog implements ActionListener
 			} 
 			else 
 			{
+			 
+				DateFormat maDF = new SimpleDateFormat("yyyy-MM-dd"); 
+			    Date blop = Date.valueOf(maDF.format(dateNaissJDC.getDate()));
+			    
 				leClient = new Client(txtNom.getText(), txtPrenom.getText(), txtMail.getText(), txtTel.getText(), txtRue.getText(), txtCP.getText(),
-						txtVille.getText(), null, (Niveau)cbxGrade.getSelectedItem());
+						txtVille.getText(), blop, (Niveau)cbxGrade.getSelectedItem());
 
 				// Ajoute la nouvelle ligne dans la base
 				ClientDao.ajouterClient(leClient);
@@ -200,7 +207,6 @@ public class Fen_AjouterClient extends JDialog implements ActionListener
 				
 				this.dispose();
 			}
-
 		}
 
 		if (e.getSource() == btnAnnuler)

@@ -156,6 +156,20 @@ public class Fen_Planning extends JDialog implements ActionListener
 		{
 			this.dispose();
 		}
-		
+		if (e.getSource() == btnAjoutActi)
+		{ 
+			Fen_AjouterActivite fenAjouterActivite;
+			// Ouvre la fenêtre modale Fen_AjouterActivite
+			fenAjouterActivite = new Fen_AjouterActivite();
+			fenAjouterActivite.setBounds(20, 20, 560, 284);
+			fenAjouterActivite.setLocation(280, 280);
+			fenAjouterActivite.setModal(true);
+			fenAjouterActivite.setVisible(true);
+			while (this.isFocusable() == false)
+			{
+				// Bloque le déroulement du code tant que la fenetre est
+				// afficher
+			}
+		}
 	}
 }

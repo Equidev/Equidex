@@ -36,8 +36,10 @@ public class Controleur
 						}
 					}
 				}
+				break;
 				// Onglet Recap
 			case 1:
+				break;
 				// Onglet Activite
 			case 2:
 				for (i = 0; i < Fen_Principal.LES_ACTIVITES.size(); i++)
@@ -92,7 +94,8 @@ public class Controleur
 					}
 					fp.refreshActivite();
 				}
-
+				
+				break;
 				// Onglet Client
 			case 3:
 				// Bouton pour crée une nouvelle activité
@@ -111,9 +114,10 @@ public class Controleur
 					}
 					fp.refreshClient();
 				}
-				
+				break;
 				// Onglet Cheval
 			case 4:
+				break;
 			}
 	}
 }

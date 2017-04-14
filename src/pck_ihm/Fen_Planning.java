@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -169,6 +170,13 @@ public class Fen_Planning extends JDialog implements ActionListener
 			{
 				// Bloque le déroulement du code tant que la fenetre est
 				// afficher
+			}
+		}
+		if (e.getSource() == btnDelActi)
+		{
+			if(JOptionPane.showConfirmDialog(null, "Voulez vous vraiment supprimer cette activité?\n"+this.cbxActivite.getSelectedItem().toString(), "Supprimer une activité", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+			{
+				System.out.println("BITE");
 			}
 		}
 	}

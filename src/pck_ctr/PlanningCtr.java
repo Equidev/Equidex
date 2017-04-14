@@ -8,7 +8,7 @@ public class PlanningCtr
 	{
 		Fen_Planning fenPlanning;
 		fenPlanning = new Fen_Planning(horaire,jour);
-		fenPlanning.setBounds(100, 100, 400, 600);
+		fenPlanning.setBounds(100, 100, 600, 540);
 		fenPlanning.setModal(true);
 		fenPlanning.setVisible(true);}
 }
